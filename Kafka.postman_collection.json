@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "e0735761-5c91-4e9f-9d58-431db813a7ce",
+		"name": "Kafka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "603614"
+	},
+	"item": [
+		{
+			"name": "Hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kafka-test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/kafka-test",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"kafka-test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kafka-test-with-response",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/kafka-test-with-response",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"kafka-test-with-response"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert-message",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"yaser\",\n    \"message\":\"hi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/insert-message",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"insert-message"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

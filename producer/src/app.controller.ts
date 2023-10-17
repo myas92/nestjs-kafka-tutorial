@@ -1,4 +1,4 @@
-import {Controller, Get, Inject, OnModuleDestroy, OnModuleInit} from '@nestjs/common';
+import {Controller, Get, Post,Body, Inject, OnModuleDestroy, OnModuleInit} from '@nestjs/common';
 import { AppService } from './app.service';
 import { ClientKafka } from '@nestjs/microservices';
 
@@ -10,7 +10,7 @@ export class AppController implements OnModuleInit, OnModuleDestroy{
   ) {}
 
   async onModuleInit() {
-    ['medium.rocks'].forEach((key) => this.client.subscribeToResponseOf(`${key}`));
+    ['medium.rocks','insert-message'].forEach((key) => this.client.subscribeToResponseOf(`${key}`));
     await this.client.connect();
   }
 
@@ -32,6 +32,16 @@ export class AppController implements OnModuleInit, OnModuleDestroy{
   @Get('kafka-test-with-response')
   testKafkaWithResponse(){
     return this.client.send('medium.rocks', {foo:'bar', data: new Date().toString()})
+  }
+
+  @Post('insert-message')
+  InsertMessage(@Body() body){
+    try{
+      console.log(body)
+      return this.client.emit('insert-message', {body, data: new Date().toString()})
+    }catch(err){
+      console.log(err)
+    }
   }
 
 
